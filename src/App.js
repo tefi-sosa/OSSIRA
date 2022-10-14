@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom'
+// import {useContext} from 'react'
+import { useSelector } from 'react-redux'
+
+import Header from './components/Header'
+import Auth from './components/Auth'
+import Home from './components/Home'
+
 import './App.css';
+import Profile from './components/Profile'
+
 
 function App() {
+  const token = useSelector(state => state.auth.token)
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+			<Header />
+			<main className="main-content">
+				<Routes>
+          <Route index element={<Home />}></Route>
+          {/* <Route path="/login" element={<Auth />}></Route> */}
+					{/* <Route index element={<WelcomePage />}></Route> */}
+					<Route path="/login" element={<Auth />} />
+					{token && (
+						<>
+							<Route
+								path="/profile"
+								element={<Profile />}
+							/>
+							{/* <Route path="/account" element={<AccountPage />} /> */}
+						</>
+					)}
+				</Routes>
+			</main>
     </div>
   );
 }
