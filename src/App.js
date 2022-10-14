@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux'
 
 import Header from './components/Header'
 import Auth from './components/Auth'
-import Home from './components/Home'
+import Home from './components/pages/Home'
 
 import './App.css';
-import Profile from './components/Profile'
+import Profile from './components/pages/Profile'
+import { Footer } from './components/Footer'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 					)}
 				</Routes>
 			</main>
+			<Footer></Footer>
     </div>
   );
 }

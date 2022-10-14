@@ -29,11 +29,8 @@ const Header = () => {
                     {token && <li>
                         <NavLink style={styleActiveLink} to='profile'>Profile</NavLink>
                     </li>}
-                    {/* {token && <li>
-                            <button className='logout-btn' onClick={() => console.log("logout")}>Logout</button>
-                        </li>} */}
                     {!token ? ( <li>
-                        <NavLink style={styleActiveLink} to='auth'>Login or Register</NavLink>
+                        <NavLink style={styleActiveLink} to='auth'><i class="fa-regular fa-user"></i> Login or Register</NavLink>
                     </li> ) : ( <button onClick={() => {
 							dispatch(authActions.logout())
 							navigate('/')
