@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 //^ INITIAL STATE AND TIMER //
 const initialState = {
-	token: '',
+	token: null,
 	userId: '',
 	isRegister: false
 }
@@ -65,7 +65,7 @@ const authSlice = createSlice({
 			logoutTimer = setTimeout(authSlice.caseReducers.logout, remainingTime)
 		},
 		logout(state) {
-			state.token = ''
+			state.token = null
 			state.userId = ''
 
 			localStorage.removeItem('exp')

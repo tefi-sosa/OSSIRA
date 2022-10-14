@@ -20,17 +20,9 @@ function App() {
 			<main className="main-content">
 				<Routes>
           <Route index element={<Home />}></Route>
-          {/* <Route path="/login" element={<Auth />}></Route> */}
-					{/* <Route index element={<WelcomePage />}></Route> */}
-					<Route path="/login" element={<Auth />} />
+					<Route path="/auth" element={<Auth />} />
 					{token && (
-						<>
-							<Route
-								path="/profile"
-								element={<Profile />}
-							/>
-							{/* <Route path="/account" element={<AccountPage />} /> */}
-						</>
+					<Route path="/profile" element={<Profile />}/>
 					)}
 				</Routes>
 			</main>

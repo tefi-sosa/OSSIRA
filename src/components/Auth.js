@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 
 import { authActions } from './../store/authSlice'
-import BlueButton from './BlueButton'
 
 import axios from 'axios'
+
+const {PORT} = process.env
 
 const Auth = () => {
 	const [error, setError] = useState('')
@@ -14,7 +15,7 @@ const Auth = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
-	const url = 'http://localhost:4040'
+	const url = `http://localhost:${PORT}`
 
 	const formInitialValues = {
 		username: '',
@@ -31,7 +32,7 @@ const Auth = () => {
 			dispatch(
 				authActions.login({
 					token: data.token,
-					sessionExp: data.expirationTime,
+					sessionExp: data.exp,
 					userId: data.userId
 				})
 			)
@@ -95,13 +96,6 @@ const Auth = () => {
 								{register ? 'Login here.' : 'Register here.'}
 							</button>
 						</div>
-						<BlueButton
-							loading={isSubmitting}
-							disabled={!dirty}
-							type={'submit'}
-						>
-							{!register ? 'Login' : 'Register'}
-						</BlueButton>
 					</Form>
 				)}
 			</Formik>
