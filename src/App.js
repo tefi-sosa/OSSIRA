@@ -5,6 +5,10 @@ import { useSelector } from 'react-redux'
 import Header from './components/Header'
 import Auth from './components/Auth'
 import Home from './components/pages/Home'
+import All from './components/pages/All'
+import Flats from './components/pages/Flats'
+import Sneakers from './components/pages/Sneakers'
+import Platforms from './components/pages/Platforms'
 
 import './App.css';
 import Profile from './components/pages/Profile'
@@ -21,6 +25,10 @@ function App() {
 			<main className="main-content">
 				<Routes>
           <Route index element={<Home />}></Route>
+					<Route path="/all" element={<All />} />
+					<Route path="/flats" element={<Flats />} />
+					<Route path="/platforms" element={<Platforms />} />
+					<Route path="/sneakers" element={<Sneakers />} />
 					<Route path="/auth" element={<Auth />} />
 					{token && (
 					<Route path="/profile" element={<Profile />}/>

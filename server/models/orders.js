@@ -13,6 +13,6 @@ module.exports = {
         order_amount: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        },
+        }
     }) 
 }

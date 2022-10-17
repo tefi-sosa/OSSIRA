@@ -17,25 +17,33 @@ const Header = () => {
 
     return (
         <header className='header flex-row'>
-            <div className='flex-row'>
-
+            <nav className='brand-name'>
                 <h2>Ossira</h2>
-            </div>
+                {token && <li>
+                    <NavLink style={styleActiveLink} to='profile'>Profile</NavLink>
+                </li>}
+                {!token ? ( <li>
+                    <NavLink style={styleActiveLink} to='auth'><i class="fa-regular fa-user"></i> Login or Register</NavLink>
+                </li> ) : ( <button onClick={() => {
+                        dispatch(authActions.logout())
+                        navigate('/')
+                    }}>Logout</button> )
+                }
+            </nav>
             <nav>
                 <ul className='main-nav'>
                     <li>
                         <NavLink style={styleActiveLink} to='/'>Home</NavLink>
                     </li>
-                    {token && <li>
-                        <NavLink style={styleActiveLink} to='profile'>Profile</NavLink>
-                    </li>}
-                    {!token ? ( <li>
-                        <NavLink style={styleActiveLink} to='auth'><i class="fa-regular fa-user"></i> Login or Register</NavLink>
-                    </li> ) : ( <button onClick={() => {
-							dispatch(authActions.logout())
-							navigate('/')
-						}}>Logout</button> )
-                    }
+                    <li>
+                        <NavLink style={styleActiveLink} to='/platforms'>Platforms</NavLink>
+                    </li>
+                    <li>
+                        <NavLink style={styleActiveLink} to='/flats'>Flats</NavLink>
+                    </li>
+                    <li>
+                        <NavLink style={styleActiveLink} to='/sneakers'>Sneakers</NavLink>
+                    </li>
                 </ul>
             </nav>
         </header>

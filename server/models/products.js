@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-
+const { Sequelize } = require('sequelize')
 const { sequelize } = require('../database/database')
 
 module.exports = {
@@ -14,8 +14,12 @@ module.exports = {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        product_type: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
         product_price: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL,
             allowNull: false
         },
         product_img: {
@@ -25,6 +29,16 @@ module.exports = {
         product_description: {
           type: DataTypes.CHAR,
           allowNull: true,
+        },
+        createdAt: {
+          allowNull: false,
+          defaultValue: new Date(),
+          type: Sequelize.DATE
+        },
+        updatedAt: {
+          allowNull: false,
+          defaultValue: new Date(),
+          type: Sequelize.DATE
         }
     }) 
 }
