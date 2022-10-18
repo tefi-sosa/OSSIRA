@@ -9,6 +9,7 @@ import All from './components/pages/All'
 import Flats from './components/pages/Flats'
 import Sneakers from './components/pages/Sneakers'
 import Platforms from './components/pages/Platforms'
+import Search from './components/pages/Search'
 
 import './App.css';
 import Profile from './components/pages/Profile'
@@ -29,6 +30,7 @@ function App() {
 					<Route path="/flats" element={<Flats />} />
 					<Route path="/platforms" element={<Platforms />} />
 					<Route path="/sneakers" element={<Sneakers />} />
+					<Route path="/search" element={<Search />} />
 					<Route path="/auth" element={<Auth />} />
 					{token && (
 					<Route path="/profile" element={<Profile />}/>

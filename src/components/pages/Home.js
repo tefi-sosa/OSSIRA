@@ -21,7 +21,7 @@ const Home = () => {
       <h2>Returns and Exchanges</h2>
       <p>You have 30 days to change your order</p>
 
-      <NavLink to='sandals'><img src={secondBanner} alt=''></img></NavLink>
+      <NavLink to='platforms'><img src={secondBanner} alt=''></img></NavLink>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { authActions } from '../store/authSlice'
+import Search from './pages/Search'
 
 
 const Header = () => {
@@ -18,12 +19,13 @@ const Header = () => {
     return (
         <header className='header flex-row'>
             <nav className='brand-name'>
+                <Search></Search>
                 <h2>Ossira</h2>
                 {token && <li>
                     <NavLink style={styleActiveLink} to='profile'>Profile</NavLink>
                 </li>}
                 {!token ? ( <li>
-                    <NavLink style={styleActiveLink} to='auth'><i class="fa-regular fa-user"></i> Login or Register</NavLink>
+                    <NavLink style={styleActiveLink} to='auth'><i className="fa-regular fa-user"></i> Login or Register</NavLink>
                 </li> ) : ( <button onClick={() => {
                         dispatch(authActions.logout())
                         navigate('/')
