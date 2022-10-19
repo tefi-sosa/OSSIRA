@@ -1,0 +1,19 @@
+.detail_container {
+  display: flex;
+  gap: 50px;
+}
+
+.detail_img {
+  width: 500px;
+}
+
+.detail_info {
+  text-align: left;
+  width: 400px;
+}
+
+.button_div {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}

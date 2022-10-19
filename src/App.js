@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 // import {useContext} from 'react'
 import { useSelector } from 'react-redux'
 
-import Header from './components/Header'
+import Header from './components/layout/Header'
 import Auth from './components/Auth'
 import Home from './components/pages/Home'
 import All from './components/pages/All'
@@ -10,11 +10,11 @@ import Flats from './components/pages/Flats'
 import Sneakers from './components/pages/Sneakers'
 import Platforms from './components/pages/Platforms'
 import Search from './components/pages/Search'
-import DetailProduct from './components/DetailProduct'
+import DetailProduct from './components/pages/DetailProduct'
 
 import './App.css';
 import Profile from './components/pages/Profile'
-import { Footer } from './components/Footer'
+import { Footer } from './components/layout/Footer'
 import { Cart } from './components/Cart'
 
 

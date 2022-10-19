@@ -39,4 +39,10 @@ module.exports = {
       .then(dbRes => res.status(200).send(dbRes[0]))
       .catch(err => console.log(err))
   },
+  addWishlist: async (req, res) => {
+    console.log('ADDING FAV')
+    console.log(req.params.id)
+    
+    let fav = req.params.id
+  },
 }

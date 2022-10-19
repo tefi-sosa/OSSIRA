@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { authActions } from '../store/authSlice'
-import Search from './pages/Search'
+import { authActions } from '../../store/authSlice'
+import Search from '../pages/Search'
 
 import classes from './Header.module.css'
 
@@ -41,6 +41,7 @@ const Header = () => {
                     }
                     <li>
                         <NavLink to='cart'><i className="fa-solid fa-cart-shopping fa-xl"></i></NavLink>
+                        {/* <i className="fa-solid fa-circle "></i> */}
                     </li>  
                 </div>
                 

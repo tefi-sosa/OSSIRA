@@ -1,15 +1,22 @@
 import {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
+import ProductCard from '../ProductCard'
+import { TailSpin } from 'react-loading-icons'
+
 const { REACT_APP_PORT } = process.env
 
+
 const Flats = () => {
-  // const [flats, getFlats] = useState()
+  const [flats, getFlats] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const getFlatShoes = () => {
     axios
       .get(`http://localhost:4040/product/flat`)
       .then((res) => {
         console.log(res.data)
+        getFlats(res.data)
+        setLoading(false)
       })
   }
 
@@ -18,8 +25,14 @@ const Flats = () => {
   }, [])
 
   return (
-    <div>Flats
-
+    <div className='product_container'>
+      {!loading ? (flats.map((s, i) => {
+        return <ProductCard id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price}/> }
+      )) : ( <div>
+        <TailSpin stroke="#000000" strokeOpacity={.9} speed={.75} height='5rem' />
+        <p>Loading...</p>
+      </div> ) 
+    }
     </div>
   )
 }
