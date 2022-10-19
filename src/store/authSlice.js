@@ -52,7 +52,7 @@ const authSlice = createSlice({
 	initialState,
 	reducers: {
 		login(state, action) {
-			state.token += action.payload.token
+			state.token = action.payload.token
 			state.userId += action.payload.userId
 			const sessionExp = action.payload.sessionExp
 
