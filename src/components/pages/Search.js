@@ -20,7 +20,8 @@ const Search = () => {
   }
 
   return (
-    <div>Search
+    <div>
+      <i className="fa-solid fa-magnifying-glass fa-xl"></i>
       <button onClick={getShoes}>Search</button>
       <input onClick={getShoes} placeholder='Search our store' onChange={(e) => {setSearch(e.target.value)}}/>
       <div className='search-container'>

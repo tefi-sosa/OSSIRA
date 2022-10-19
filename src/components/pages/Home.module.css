@@ -1,0 +1,26 @@
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 50px 20px;
+}
+
+.features_item {
+  max-width: 300px;
+}
+
+.features_item:hover {
+  color: rgb(141, 139, 139);
+}
+
+
+.img_banner {
+  object-fit:cover;
+  object-position: -80;
+  width: 100vw;
+}
+
+.img_banner:hover {
+  /* -webkit-mask: linear-gradient(rgba(205, 204, 204, 0.393), black) ; */
+}

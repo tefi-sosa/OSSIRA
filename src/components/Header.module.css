@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid;
+  border-bottom-color: #e8e8e1;
+  background-color: white;
+  width: 100vw;
+  position: fixed;
+  padding-bottom: 10px;
+}
+
+nav {
+  width: 100vw;
+  max-width: 1300px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  padding: 8px 20px;
+}
+
+.brand_nav {
+  justify-content: space-between;
+}
+
+.header_item_left {
+  display: flex;
+  gap: 20px;
+}

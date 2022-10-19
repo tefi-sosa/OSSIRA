@@ -1,5 +1,5 @@
 const { register, login } = require('../controllers/auth')
-const { getProduct, getAll } = require('../controllers/controllers')
+const { getProduct, getAll, getProductType } = require('../controllers/controllers')
 const { isAuthenticated } = require('../middleware/isAuthenticated')
 
 module.exports = app => {
@@ -8,6 +8,9 @@ module.exports = app => {
   app.post('/login', login)
 
   //products
-  app.get('/product/:type', getProduct)
+  app.get('/product-detail/:id', getProduct)  
+  app.get('/product/:type', getProductType)
   app.get('/product', getAll)
+
+
 }

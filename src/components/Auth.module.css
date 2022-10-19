@@ -1,0 +1,27 @@
+.auth {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.field {
+  padding: 5px 10px;
+  width: 300px;
+  font-family: 'Montserrat';
+  font-weight: 200;
+
+}

@@ -4,8 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 
 import { authActions } from './../store/authSlice'
+import LoginBtn from './LoginBtn'
 
 import axios from 'axios'
+
+import classes from './Auth.module.css'
 
 const {PORT} = process.env
 
@@ -15,7 +18,7 @@ const Auth = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 
-	const url = `http://localhost:${PORT}`
+	const url = `http://localhost:4040`
 
 	const formInitialValues = {
 		username: '',
@@ -36,10 +39,11 @@ const Auth = () => {
 					userId: data.userId
 				})
 			)
-			navigate('/')
+			navigate('/profile')
 		} catch (err) {
 			console.log(err)
-			setError(err.response.data)
+			// setError(err.response.data)
+			setError(err.response)
 			if (register) {
 				setTimeout(() => {
 					setError('')
@@ -53,54 +57,69 @@ const Auth = () => {
 	}
 
 	return (
-		<div >
-			<h1>{!register ? 'Login' : 'Register for an account'}</h1>
+		<section className={classes.auth}>
+			<div className={classes.form}>
+				<h2>{!register ? 'LOGIN' : 'Register for an account'}</h2>
 
-			<Formik
-				initialValues={formInitialValues}
-				onSubmit={(values, { resetForm }) => {
-					handleSubmit(values)
-					resetForm({ values: '' })
-				}}
-			>
-				{({ isSubmitting, dirty }) => (
-					<Form >
-						<div >
-							<label htmlFor="username">
-								Username
-							</label>
-							<Field
+				<Formik
+					initialValues={formInitialValues}
+					onSubmit={(values, { resetForm }) => {
+						handleSubmit(values)
+						resetForm({ values: '' })
+					}}
+				>
+					{({ isSubmitting, dirty }) => (
+						<Form >
+							<div className={classes.form}>
+								<div className={classes.inputs}>
+									<label htmlFor="username">
+										Username
+									</label>
+									<Field
+										style={{marginBottom: 25}}
+										className={classes.field}
+										name="username"
+										placeholder="Email or username"
+									/>
+									<label htmlFor="password">
+										Password
+									</label>
+									<Field
+										className={classes.field}
+										type="password"
+										name="password"
+										placeholder="Password"
+									/>
+								</div>
+								<LoginBtn
+
+									loading={isSubmitting}
+									disabled={!dirty}
+									type={'submit'}
+								>
+									{!register ? 'Login' : 'Register'}
+								</LoginBtn>								
+							</div>
+							<div >
+								<p >
+									{register ? 'Need to log in?' : 'No Account?'}
+								</p>
+								<button
+									
+									type="button"
+									onClick={() => dispatch(authActions.toggleRegister())}
+								>
+									{register ? 'Login here.' : 'Create Account'}
+								</button>
+
 								
-								name="username"
-								placeholder="Email or username"
-							/>
-							<label htmlFor="password">
-								Password
-							</label>
-							<Field
-								
-								type="password"
-								name="password"
-								placeholder="Password"
-							/>
-						</div>
-						<div >
-							<p >
-								{register ? 'Need to log in?' : 'No Account?'}
-							</p>
-							<button
-								
-								type="button"
-								onClick={() => dispatch(authActions.toggleRegister())}
-							>
-								{register ? 'Login here.' : 'Register here.'}
-							</button>
-						</div>
-					</Form>
-				)}
-			</Formik>
-			<p >{error}</p>
-		</div>
+							</div>
+						</Form>
+					)}
+				</Formik>
+				<p >{error}</p>
+			</div>
+		</section>
 	)
 }
 

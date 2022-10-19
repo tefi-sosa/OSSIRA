@@ -19,14 +19,24 @@ module.exports = {
       .then(dbRes => res.status(200).send(dbRes[0]))
       .catch(err => console.log(err))
   },
-  getProduct: async (req, res) => {
+  getProductType: async (req, res) => {
     // console.log(req.params.type)
-    let shoe = req.params.type
+    let shoes = req.params.type
 
     sequelize.query(
-      `SELECT * FROM products WHERE product_type='${shoe}'`
+      `SELECT * FROM products WHERE product_type='${shoes}'`
     )
       .then(dbRes => res.status(200).send(dbRes[0]))
       .catch(err => console.log(err))
-  }
+  },
+  getProduct: async (req, res) => {
+    console.log(req.params.id)
+    let shoeId = req.params.id
+
+    sequelize.query(
+      `SELECT * FROM products WHERE product_id='${shoeId}'`
+    )
+      .then(dbRes => res.status(200).send(dbRes[0]))
+      .catch(err => console.log(err))
+  },
 }

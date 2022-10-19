@@ -19,8 +19,9 @@ app.use(cors())
 // Database //
 
 Wishlist.belongsTo(User, { constraints: true, onDelete: 'CASCADE' })
-Wishlist.hasMany(Products)
-Order.hasMany(Products)
+Products.hasMany(Wishlist)
+Products.hasMany(Order)
+User.hasMany(Order)
 
 // Routes //
 require('./routes/routes')(app)

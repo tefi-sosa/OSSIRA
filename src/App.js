@@ -10,10 +10,12 @@ import Flats from './components/pages/Flats'
 import Sneakers from './components/pages/Sneakers'
 import Platforms from './components/pages/Platforms'
 import Search from './components/pages/Search'
+import DetailProduct from './components/DetailProduct'
 
 import './App.css';
 import Profile from './components/pages/Profile'
 import { Footer } from './components/Footer'
+import { Cart } from './components/Cart'
 
 
 function App() {
@@ -31,10 +33,13 @@ function App() {
 					<Route path="/platforms" element={<Platforms />} />
 					<Route path="/sneakers" element={<Sneakers />} />
 					<Route path="/search" element={<Search />} />
+
 					<Route path="/auth" element={<Auth />} />
 					{token && (
 					<Route path="/profile" element={<Profile />}/>
 					)}
+					<Route path="/product-detail/:id" element={<DetailProduct />} />
+					<Route path="/cart" element={<Cart />} />
 				</Routes>
 			</main>
 			<Footer></Footer>

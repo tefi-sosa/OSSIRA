@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { authActions } from '../store/authSlice'
 import Search from './pages/Search'
 
+import classes from './Header.module.css'
 
 const Header = () => {
 
@@ -17,36 +18,46 @@ const Header = () => {
     }
 
     return (
-        <header className='header flex-row'>
-            <nav className='brand-name'>
-                <Search></Search>
-                <h2>Ossira</h2>
-                {token && <li>
-                    <NavLink style={styleActiveLink} to='profile'>Profile</NavLink>
-                </li>}
-                {!token ? ( <li>
-                    <NavLink style={styleActiveLink} to='auth'><i className="fa-regular fa-user"></i> Login or Register</NavLink>
-                </li> ) : ( <button onClick={() => {
-                        dispatch(authActions.logout())
-                        navigate('/')
-                    }}>Logout</button> )
-                }
+        <header >
+            <nav className={classes.brand_nav}>
+                <div>
+                    <Search></Search>                    
+                </div>
+                <div>
+                    <h1>
+                        <NavLink to='/'>O S S I R A</NavLink>
+                    </h1>                    
+                </div>
+                <div className={classes.header_item_left}>
+                    {token && <li>
+                        <NavLink style={styleActiveLink} to='profile'>Profile</NavLink>
+                    </li>}
+                    {!token ? ( <li>
+                        <NavLink style={styleActiveLink} to='auth'><i className="fa-regular fa-user fa-xl"></i> Login or Register</NavLink>
+                    </li> ) : ( <button onClick={() => {
+                            dispatch(authActions.logout())
+                            navigate('/')
+                        }}>Logout</button> )
+                    }
+                    <li>
+                        <NavLink to='cart'><i className="fa-solid fa-cart-shopping fa-xl"></i></NavLink>
+                    </li>  
+                </div>
+                
             </nav>
             <nav>
-                <ul className='main-nav'>
-                    <li>
-                        <NavLink style={styleActiveLink} to='/'>Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink style={styleActiveLink} to='/platforms'>Platforms</NavLink>
-                    </li>
-                    <li>
-                        <NavLink style={styleActiveLink} to='/flats'>Flats</NavLink>
-                    </li>
-                    <li>
-                        <NavLink style={styleActiveLink} to='/sneakers'>Sneakers</NavLink>
-                    </li>
-                </ul>
+                <li>
+                    <NavLink style={styleActiveLink} to='/all'>NEW ARRIVALS</NavLink>
+                </li>
+                <li>
+                    <NavLink style={styleActiveLink} to='/platforms'>PLATFORMS</NavLink>
+                </li>
+                <li>
+                    <NavLink style={styleActiveLink} to='/flats'>FLATS</NavLink>
+                </li>
+                <li>
+                    <NavLink style={styleActiveLink} to='/sneakers'>SNEAKERS</NavLink>
+                </li>
             </nav>
         </header>
     )
