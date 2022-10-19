@@ -26,5 +26,6 @@ nav {
 
 .header_item_left {
   display: flex;
+  align-items: center;
   gap: 20px;
 }

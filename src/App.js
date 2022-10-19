@@ -16,6 +16,7 @@ import './App.css';
 import Profile from './components/pages/Profile'
 import { Footer } from './components/layout/Footer'
 import { Cart } from './components/Cart'
+import Wishlist from './components/pages/Wishlist'
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
 					<Route path="/auth" element={<Auth />} />
 					{token && (
 					<Route path="/profile" element={<Profile />}/>
+					)}
+					{token && (
+					<Route path="/Wishlist" element={<Wishlist />}/>
 					)}
 					<Route path="/product-detail/:id" element={<DetailProduct />} />
 					<Route path="/cart" element={<Cart />} />

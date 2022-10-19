@@ -9,10 +9,22 @@ const DetailProduct = () => {
   const { id } = useParams();  
   const [shoe, setShoe] = useState({})
   const [loading, setLoading] = useState(true)
+  // const [fav, setFav] = useState(false)
 
   const url = `http://localhost:4040`
   let imgURL = shoe.product_img
   console.log(shoe)
+
+  const handleFavClick = () => {
+    let token = localStorage.getItem('token')
+    let userId = localStorage.getItem('userId')
+
+    axios
+    .post(`${url}/wishlist/${id}`, {userId}, {headers: {authorization: token}})
+    .then((res) => {
+      console.log('ADDED')
+    })
+  }
 
   useEffect(() => {
     axios
@@ -21,6 +33,13 @@ const DetailProduct = () => {
             setShoe(res.data[0])
             setLoading(false)
         })
+    
+    axios
+    .get(`${url}/wishlist`)
+    .then((res) => {
+        setShoe(res.data[0])
+        setLoading(false)
+    })
   }, [])
 
   return (
@@ -40,7 +59,9 @@ const DetailProduct = () => {
             <p>Description - Lorem ipsum dolor sit amet, eos ex duis omnis, solum doming atomorum vim at. Usu te vero legimus repudiandae. At vix iuvaret honestatis necessitatibus, regione fuisset delicatissimi ut nec. In falli alterum his. Eam forensibus honestatis te, id quo elit perpetua adipiscing.</p>
             <div className={classes.button_div}>
               <button>Add to Cart</button>
-              <i className="fa-regular fa-heart fa-xl"></i>              
+              <i onClick={() => {
+                handleFavClick()
+              }} className="fa-regular fa-heart fa-xl"></i>              
             </div>
             {/* <i className="fa-solid fa-plus"></i>
             <i className="fa-solid fa-minus"></i> */}

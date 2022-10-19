@@ -40,6 +40,9 @@ const Header = () => {
                         }}>Logout</button> )
                     }
                     <li>
+                        <NavLink style={token && styleActiveLink} to={!token ? ('auth') : ('wishlist')}><i className="fa-regular fa-heart fa-xl"></i></NavLink>
+                    </li> 
+                    <li>
                         <NavLink to='cart'><i className="fa-solid fa-cart-shopping fa-xl"></i></NavLink>
                         {/* <i className="fa-solid fa-circle "></i> */}
                     </li>  
