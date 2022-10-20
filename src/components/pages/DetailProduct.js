@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { useParams} from 'react-router-dom'
 import { TailSpin } from 'react-loading-icons'
 import classes from './DetailProduct.module.css'
+import { addToCart } from '../../store/cartSlice'
 
 const DetailProduct = () => {
 
@@ -12,6 +14,7 @@ const DetailProduct = () => {
   const [loading, setLoading] = useState(true)
   // const [fav, setFav] = useState(false)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const url = `http://localhost:4040`
   let imgURL = shoe.product_img
@@ -60,10 +63,19 @@ const DetailProduct = () => {
             <hr/>
             <p>Description - Lorem ipsum dolor sit amet, eos ex duis omnis, solum doming atomorum vim at. Usu te vero legimus repudiandae. At vix iuvaret honestatis necessitatibus, regione fuisset delicatissimi ut nec. In falli alterum his. Eam forensibus honestatis te, id quo elit perpetua adipiscing.</p>
             <div className={classes.button_div}>
-              <button>Add to Cart</button>
+              <button 
+                onClick={() => 
+                  dispatch(addToCart({
+                    id:shoe.product_id, title:shoe.product_name, image:shoe.product_img, price:shoe.product_price
+                  }))
+                }
+              >Add to Cart</button>
+              {/* <div>
               <i onClick={() => {
                 if(token) {handleFavClick()} else {navigate('/auth')}
-              }} className="fa-regular fa-heart fa-xl"></i>              
+              }} className="fa-regular fa-heart fa-xl"></i>                              
+              </div> */}
+
             </div>
             {/* <i className="fa-solid fa-plus"></i>
             <i className="fa-solid fa-minus"></i> */}
