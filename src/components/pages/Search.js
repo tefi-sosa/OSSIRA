@@ -1,10 +1,12 @@
 import {useState} from 'react'
 import axios from 'axios'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Search = () => {
 
   const [allShoes, setShoes] = useState([])
   const [search, setSearch] = useState("")
+  const navigate = useNavigate()
 
   const getShoes = () => {
     axios
@@ -34,7 +36,9 @@ const Search = () => {
           if(shoeType.includes(searchImput)) return p
         })
         .map((p, i) => {
-          return <h1>{p.product_name}</h1>
+          return <NavLink to={`/product-detail/${p.product_id}`} onClick={() => {
+            navigate(`/product-detail/${p.product_id}`)
+            setSearch("")}}><h3>{p.product_name}</h3></NavLink>
         })}
       </div>
     </div>

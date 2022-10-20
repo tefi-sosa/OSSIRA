@@ -44,3 +44,17 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+.star, .close, .card-title-container {
+  position: relative;
+}
+
+.close {
+  position: relative;
+}
+
+.fa-xmark {
+  position: absolute;
+  top: -23.2rem;
+  right: 1rem;
+}

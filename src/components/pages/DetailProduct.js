@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useParams} from 'react-router-dom'
 import { TailSpin } from 'react-loading-icons'
 import classes from './DetailProduct.module.css'
@@ -10,15 +11,16 @@ const DetailProduct = () => {
   const [shoe, setShoe] = useState({})
   const [loading, setLoading] = useState(true)
   // const [fav, setFav] = useState(false)
+  const navigate = useNavigate()
 
   const url = `http://localhost:4040`
   let imgURL = shoe.product_img
   console.log(shoe)
 
-  const handleFavClick = () => {
     let token = localStorage.getItem('token')
-    let userId = localStorage.getItem('userId')
+    let userId = localStorage.getItem('userId')  
 
+  const handleFavClick = () => {
     axios
     .post(`${url}/wishlist/${id}`, {userId}, {headers: {authorization: token}})
     .then((res) => {
@@ -60,7 +62,7 @@ const DetailProduct = () => {
             <div className={classes.button_div}>
               <button>Add to Cart</button>
               <i onClick={() => {
-                handleFavClick()
+                if(token) {handleFavClick()} else {navigate('/auth')}
               }} className="fa-regular fa-heart fa-xl"></i>              
             </div>
             {/* <i className="fa-solid fa-plus"></i>
