@@ -10,7 +10,7 @@ export const Footer = () => {
         <a href='https://www.tiktok.com/' target="_blank" rel="noreferrer noopener"><i className={`social-icon fa-brands fa-tiktok fa-xl ${classes.icon}`}></i></a>
         <a href='https://www.facebook.com/' target="_blank" rel="noreferrer noopener"><i className={`social-icon fa-brands fa-facebook fa-xl ${classes.icon}`}></i></a>
       </div>
-      <p class="copyright">Copyright © Ossira 2022</p>
+      <p className="copyright">Copyright © Ossira 2022</p>
     </footer>
   )
 }

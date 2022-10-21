@@ -27,7 +27,7 @@ const Flats = () => {
   return (
     <div className='product_container'>
       {!loading ? (flats.map((s, i) => {
-        return <ProductCard id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price}/> }
+        return <ProductCard key={s.product_id} id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price}/> }
       )) : ( <div>
         <TailSpin stroke="#000000" strokeOpacity={.9} speed={.75} height='5rem' />
         <p>Loading...</p>

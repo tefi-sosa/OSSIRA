@@ -15,17 +15,17 @@ const Home = () => {
       
       <div className={classes.features}>
         <div className={classes.features_item}>
-          <i class="fa-solid fa-truck-fast fa-xl"></i>
+          <i className="fa-solid fa-truck-fast fa-xl"></i>
           <h4>Shipping</h4>
           <p>Free nation-wide shipping on any of our products</p>
         </div>
         <div className={classes.features_item}>
-          <i class="fa-solid fa-store fa-xl"></i>
+          <i className="fa-solid fa-store fa-xl"></i>
           <h4>Store pickup</h4>
           <p>Come to pick up your order at no cost to any of our branches</p>
         </div>
         <div className={classes.features_item}>
-          <i class="fa-solid fa-arrow-rotate-left fa-xl"></i>
+          <i className="fa-solid fa-arrow-rotate-left fa-xl"></i>
           <h4>Returns and Exchanges</h4>
           <p>You have 30 days to change your order</p>           
         </div>
