@@ -13,8 +13,10 @@ export const Cart = () => {
 <div className="cart">
       <div className="cart__left">
         <div>
-          <h3>Shopping Cart</h3>
-          {cart.map((item) => (
+          <h2>SHOPPING CART</h2>
+          <div className='product_container'>
+            {cart.length === 0 ? (<p>You have no items added to the cart</p>) : (
+          cart.map((item) => (
             <CheckoutCartItem
               key={item.id}
               id={item.id}
@@ -23,7 +25,10 @@ export const Cart = () => {
               price={item.price} 
               quantity={item.quantity}
             />
-          ))}
+          ))              
+            )}
+
+          </div>
         </div>
       </div>
 

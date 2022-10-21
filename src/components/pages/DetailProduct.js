@@ -45,7 +45,7 @@ const DetailProduct = () => {
         setShoe(res.data[0])
         setLoading(false)
     })
-  }, [])
+  }, [id])
 
   return (
     <div className='product_container'>
@@ -58,7 +58,7 @@ const DetailProduct = () => {
         <div className={classes.detail_container}>
           <img className={classes.detail_img} src={imgURL} alt=''></img>
           <div className={classes.detail_info}>
-            <h2>{shoe.product_name}</h2>
+            <h2>{shoe.product_name.toUpperCase()}</h2>
             <h3>$ {shoe.product_price}</h3>
             <hr/>
             <p>Description - Lorem ipsum dolor sit amet, eos ex duis omnis, solum doming atomorum vim at. Usu te vero legimus repudiandae. At vix iuvaret honestatis necessitatibus, regione fuisset delicatissimi ut nec. In falli alterum his. Eam forensibus honestatis te, id quo elit perpetua adipiscing.</p>
@@ -77,8 +77,6 @@ const DetailProduct = () => {
               </div> */}
 
             </div>
-            {/* <i className="fa-solid fa-plus"></i>
-            <i className="fa-solid fa-minus"></i> */}
           </div>
         </div>
       )}

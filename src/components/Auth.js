@@ -69,7 +69,7 @@ const Auth = () => {
 					}}
 				>
 					{({ isSubmitting, dirty }) => (
-						<Form >
+						<Form>
 							<div className={classes.form}>
 								<div className={classes.inputs}>
 									<label htmlFor="username">
@@ -105,11 +105,11 @@ const Auth = () => {
 									{register ? 'Need to log in?' : 'No Account?'}
 								</p>
 								<button
-									
+									className={classes.toggler_btn}
 									type="button"
 									onClick={() => dispatch(authActions.toggleRegister())}
 								>
-									{register ? 'Login here.' : 'Create Account'}
+									{register ? 'Login Here' : 'Create Account'}
 								</button>
 
 								

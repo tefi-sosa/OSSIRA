@@ -4,12 +4,21 @@ import { authActions } from '../../store/authSlice'
 import Search from '../pages/Search'
 
 import classes from './Header.module.css'
+import { FastField } from 'formik'
 
 const Header = () => {
 
     const token = useSelector(state => state.auth.token)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const cart = useSelector((state) => state.cart.cart)
+
+    let emptyCart = true
+    if (cart.length >= 1) {
+        emptyCart = false
+    } else {
+        emptyCart = true
+    }
 
     const styleActiveLink = ({ isActive }) => {
         return {
@@ -43,8 +52,10 @@ const Header = () => {
                         <NavLink style={token && styleActiveLink} to={!token ? ('auth') : ('wishlist')}><i className="fa-regular fa-heart fa-xl"></i></NavLink>
                     </li> 
                     <li>
-                        <NavLink to='cart'><i className="fa-solid fa-cart-shopping fa-xl"></i></NavLink>
-                        {/* <i className="fa-solid fa-circle "></i> */}
+                        <NavLink style={styleActiveLink} to='cart'><i className="fa-solid fa-cart-shopping fa-xl"></i></NavLink>
+                        <div className='close'>
+                            {!emptyCart && <i className="fa-solid fa-circle fa-xs"></i>}
+                        </div>
                     </li>  
                 </div>
                 

@@ -9,7 +9,7 @@ const ProductCard = ( { id, name, imgURL, price, children} ) => {
         <img className={classes.card_img} src={imgURL} alt=''></img>
         {children}
         <hr className={classes.card_hr}/>
-        <h2>{name}</h2>
+        <h2>{name.toUpperCase()}</h2>
         <h3>${price}</h3>
       </div>
     </NavLink>

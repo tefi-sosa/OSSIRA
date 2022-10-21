@@ -14,6 +14,10 @@ a {
   color: black;
 }
 
+h2 {
+  font-weight: 500;
+}
+
 .main-content {
   padding-top: 130px;
 }
@@ -57,4 +61,12 @@ hr {
   position: absolute;
   top: -23.2rem;
   right: 1rem;
+}
+
+.fa-circle {
+  color: #f57145;
+  /* color: rgb(236, 192, 253); */
+  position: absolute;
+  top: -20px;
+  right: 5px;
 }
