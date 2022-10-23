@@ -42,8 +42,7 @@ const Auth = () => {
 			navigate('/profile')
 		} catch (err) {
 			console.log(err)
-			// setError(err.response.data)
-			setError(err.response)
+			setError(err.response.data)
 			if (register) {
 				setTimeout(() => {
 					setError('')
@@ -51,7 +50,7 @@ const Auth = () => {
 			} else {
 				setTimeout(() => {
 					setError('')
-				}, 2000)
+				}, 3000)
 			}
 		}
 	}
@@ -117,7 +116,7 @@ const Auth = () => {
 						</Form>
 					)}
 				</Formik>
-				<p >{error}</p>
+				<p className={classes.error}>{error}</p>
 			</div>
 		</section>
 	)

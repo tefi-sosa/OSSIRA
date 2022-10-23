@@ -27,13 +27,21 @@ module.exports = {
       const {username, password} = req.body
 
       if (username === '' || password === '') {
-				// throw 'Please provide a username and password'
+				throw 'Please provide a username and password'
+			}
+
+      const requirements = new RegExp(
+				'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{5,}$'
+			) // Validating username length, same as data model user
+
+      if (!requirements.test(password)) {
+				throw 'Password must be at least 5 characters long, contain one uppercase letter, one lowercase letter, one number, and one special character.'
 			}
 
       const foundUser =  await User.findOne({where: {username}})
       
       if (foundUser) {
-        res.status(400).send('cannot create user')
+        throw 'User already exists'
       } else {
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
@@ -53,8 +61,8 @@ module.exports = {
             exp})
       }
     } catch (error) {
-      console.log("ERROR in register")
-      console.log(error)
+      console.error('ERROR in register', error)
+			res.status(400).send(error)
     }
   },
 
@@ -80,14 +88,14 @@ module.exports = {
               exp
           })
         } else {
-          res.status(400).send('Cannot log in')
+          throw 'Cannot log in. Please try again'
         }
       } else {
-        res.status(400).send('Cannot log in. User does not exist')
+        throw 'Cannot log in. User does not exist'
       }
     } catch (error) {
-      console.log("ERROR in login")
-      console.log(error)
+      console.log("ERROR in login", error)
+      res.status(400).send(error)
     }
   },
 }
