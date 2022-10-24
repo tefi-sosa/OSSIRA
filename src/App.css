@@ -18,6 +18,10 @@ h2 {
   font-weight: 500;
 }
 
+h4 {
+  font-weight: 400;
+}
+
 .main-content {
   padding-top: 130px;
 }
@@ -29,11 +33,23 @@ button {
   font-family: 'Montserrat', sans-serif;
 }
 
+button:hover {
+  cursor:pointer
+  
+}
+
 .product_container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  padding: 50px;
+  gap: 35px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
   padding: 50px;
   gap: 35px;
 }
@@ -69,4 +85,20 @@ hr {
   position: absolute;
   top: -20px;
   right: 5px;
+}
+
+table {
+  width: 900px;
+  border-collapse: collapse;
+  border-spacing: 10;
+  /* max-width: 100%; */
+}
+
+tr {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+td {
+  vertical-align: middle;
+  text-align: center;
 }

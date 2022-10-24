@@ -7,6 +7,7 @@ import { TailSpin } from 'react-loading-icons'
 import classes from './DetailProduct.module.css'
 import { addToCart } from '../../store/cartSlice'
 
+
 const DetailProduct = () => {
 
   const { id } = useParams();  

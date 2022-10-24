@@ -42,7 +42,7 @@ const Header = () => {
                         <NavLink style={styleActiveLink} to='profile'>Profile</NavLink>
                     </li>}
                     {!token ? ( <li>
-                        <NavLink style={styleActiveLink} to='auth'><i className="fa-regular fa-user fa-xl"></i> Login or Register</NavLink>
+                        <NavLink style={styleActiveLink} to='auth'><i className="fa-regular fa-user fa-xl"></i></NavLink>
                     </li> ) : ( <button onClick={() => {
                             dispatch(authActions.logout())
                             navigate('/')

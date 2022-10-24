@@ -1,0 +1,25 @@
+.titles {
+  font-weight: 300;
+  width: 900px;
+}
+
+.cart_item {
+  width: 900px;
+}
+
+.title_left {
+  text-align: left;
+}
+
+.hide {
+  display: none;
+}
+
+.cart_right {
+  background-color: #e6e6e6;
+  padding: 0 40px 20px 40px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
