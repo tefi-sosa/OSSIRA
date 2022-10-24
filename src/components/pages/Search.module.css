@@ -1,0 +1,29 @@
+.search_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_main {
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+.search_container {
+  width: 823px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.input {
+  height: 50px;
+  width: 600px;
+  padding: 0 20px;
+  font-family: 'Montserrat', sans-serif;
+}

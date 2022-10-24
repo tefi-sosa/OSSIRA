@@ -1,8 +1,10 @@
 import {useState} from 'react'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
+import Modal from '../Modal'
+import classes from './Search.module.css'
 
-const Search = () => {
+const Search = ( {onClose} ) => {
 
   const [allShoes, setShoes] = useState([])
   const [search, setSearch] = useState("")
@@ -16,16 +18,17 @@ const Search = () => {
       })
   }
 
-  const handleSearch = () => {
-
-  }
-
   return (
-    <div>
-      <i className="fa-solid fa-magnifying-glass fa-xl"></i>
-      <button onClick={getShoes}>Search</button>
-      <input onClick={getShoes} placeholder='Search our store' value={search} onChange={(e) => {setSearch(e.target.value)}}/>
-      <div className='search-container'>
+    <Modal onClose={onClose} >
+    <div className={classes.search_section}>
+
+      <div className={classes.search_main}>
+        <i className="fa-solid fa-magnifying-glass fa-xl"></i>
+        <input  className={classes.input} onClick={getShoes} placeholder='Search our store' value={search} onChange={(e) => {setSearch(e.target.value)}}/>
+        <i className="fa-solid fa-xmark fa-xl" onClick={onClose} />         
+      </div>
+     
+      <div className={classes.search_container}>
         {search.length > 1 && allShoes.filter((p) => {
           let shoeName = p.product_name.toLowerCase()
           let shoeType = p.product_type.toLowerCase()
@@ -35,10 +38,11 @@ const Search = () => {
           if(shoeType.includes(searchImput)) return p
         })
         .map((p, i) => {
-          return <NavLink to={`/product-detail/${p.product_id}`} onClick={() => setSearch("")} ><h3>{p.product_name}</h3></NavLink>
+          return <NavLink to={`/product-detail/${p.product_id}`} onClick={() => setSearch("")} ><h4>{p.product_name.toUpperCase()}</h4></NavLink>
         })}
       </div>
     </div>
+    </Modal>
   )
 }
 

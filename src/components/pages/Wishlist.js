@@ -51,7 +51,7 @@ const Wishlist = () => {
           <ProductCard id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price} >
             <div class="close">
             <NavLink to={`/wishlist`}>
-              <i className="fa-solid fa-xmark fa-xl" onClick={() => {handleDeleteFav(s.product_id)
+              <i className="fa-solid fa-xmark fa-xl x_close" onClick={() => {handleDeleteFav(s.product_id)
               navigate('/favorites')}
               }></i>
             </NavLink>

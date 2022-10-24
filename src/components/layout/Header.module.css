@@ -24,8 +24,18 @@ nav {
   justify-content: space-between;
 }
 
+.header_item_rigth {
+  width: 295px;
+  text-align: left;
+}
+
 .header_item_left {
+  width: 295px;
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.brand_title {
+  justify-self: center;
 }
