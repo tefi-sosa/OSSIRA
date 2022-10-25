@@ -17,6 +17,6 @@ module.exports = app => {
   app.get('/wishlist', getWishlist)
   // app.get('/')
   app.post('/wishlist/:id', isAuthenticated, addWishlist)
-  app.delete('/wishlist/:id', deleteWishlist)
+  app.delete('/wishlist/:id', isAuthenticated, deleteWishlist)
 
 }

@@ -8,6 +8,7 @@ header {
   width: 100vw;
   position: fixed;
   padding-bottom: 10px;
+  z-index: 1;
 }
 
 nav {
@@ -33,6 +34,7 @@ nav {
   width: 295px;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 20px;
 }
 

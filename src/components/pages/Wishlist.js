@@ -18,8 +18,8 @@ const Wishlist = () => {
   const url = `http://localhost:4040`
 
   const handleDeleteFav = (id) => {
-    console.log(id)
-    console.log(userId)
+    // console.log(id)
+    // console.log(userId)
     axios
       .delete(`${url}/wishlist/${id}`, {headers: {authorization: token},
       params: {
@@ -27,37 +27,44 @@ const Wishlist = () => {
       }})
     .then((res) => {
         console.log(res.data)
+        getAllFavorites()
+    })
+  }
+
+  const getAllFavorites = () => {
+    axios
+    .get(`${url}/wishlist`, {
+      params: {
+      user: userId
+    }
+  })
+    .then((res) => {
+        // console.log(res.data)
+        setWishlist(res.data)
+        setLoading(false)
     })
   }
 
   useEffect(() => {
-    axios
-        .get(`${url}/wishlist`, {
-          params: {
-          user: userId
-        }
-      })
-        .then((res) => {
-            console.log(res.data)
-            setWishlist(res.data)
-            setLoading(false)
-        })
+    getAllFavorites()
   }, [])
 
   return (
     <div className='product_container'>
-      {!loading ? (wishlist.map((s, i) => {
+      {!loading ? ( (wishlist.length === 0) ? (<p>You have no items added to the wishlist</p>) : ( wishlist.map((s, i) => {
         return (
-          <ProductCard id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price} >
-            <div class="close">
+          <ProductCard key={s.product_id} id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price} >
+            <div className="close">
             <NavLink to={`/wishlist`}>
               <i className="fa-solid fa-xmark fa-xl x_close" onClick={() => {handleDeleteFav(s.product_id)
-              navigate('/favorites')}
+              getAllFavorites()
+              }
               }></i>
             </NavLink>
             </div>
           </ProductCard> )}
-      )) : ( <div>
+      )) 
+      ) : ( <div>
         <TailSpin stroke="#000000" strokeOpacity={.9} speed={.75} height='5rem' />
         <p>Loading...</p>
       </div> ) 

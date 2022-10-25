@@ -11,7 +11,7 @@ export const Cart = () => {
   // console.log(cart)
 
   return (
-    <div className="cart">
+    <div className={classes.cart}>
       <h2>SHOPPING CART</h2>
 
       <div className='container'>

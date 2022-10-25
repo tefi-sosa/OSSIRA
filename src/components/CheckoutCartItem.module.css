@@ -1,10 +1,10 @@
 .cartItem {
   text-align: left;
-  height: 290px;
+  height: 240px;
 }
 
 .cartItem_img {
-  width: 150px;
+  width: 130px;
 }
 
 .cartItem_quantity {

@@ -38,7 +38,8 @@ const Search = ( {onClose} ) => {
           if(shoeType.includes(searchImput)) return p
         })
         .map((p, i) => {
-          return <NavLink to={`/product-detail/${p.product_id}`} onClick={() => setSearch("")} ><h4>{p.product_name.toUpperCase()}</h4></NavLink>
+          return <NavLink to={`/product-detail/${p.product_id}`} onClick={() => {setSearch("")
+          onClose()}} ><h4>{p.product_name.toUpperCase()}</h4></NavLink>
         })}
       </div>
     </div>

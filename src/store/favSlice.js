@@ -1,25 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const initialState = {
+	favorites: []
+}
+
+// HELPER //
+
+const isFavorite = () => {
+  
+}
+
 const favSlice = createSlice({
   name: 'favorites',
-  initialState: {
-    favorites: [],
-  },
+  initialState,
   reducers: {
     addToFavorites: (state, action) => {
       console.log('ADDINGGGG FAV')
       
-      const itemInCart = state.cart.find((item) => item.id === action.payload.id);
-      if (itemInCart) {
-        itemInCart.quantity++;
-      } else {
-        state.cart.push({ ...action.payload, quantity: 1 });
-      }
+      state.favorites.push(action.payload);
+
     },
 
     removeFavorite: (state, action) => {
-      const removeItem = state.cart.filter((item) => item.id !== action.payload);
-      state.cart = removeItem;
+      console.log('DELETING FAV')
+
+      const removeFav = state.favorites.filter((item) => item.id !== action.payload);
+      state.favorites = removeFav;
+
     },
   },
 });
@@ -29,4 +36,4 @@ export const {
   removeFavorite,
 } = favSlice.actions
 
-export default favSlice.reducer //cartreducer
+export default favSlice.reducer 
