@@ -39,7 +39,7 @@ const Auth = () => {
 					userId: data.userId
 				})
 			)
-			navigate('/profile')
+			navigate('/user')
 		} catch (err) {
 			console.log(err)
 			setError(err.response.data)

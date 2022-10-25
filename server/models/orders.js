@@ -10,6 +10,9 @@ module.exports = {
             allowNull: false,
             primaryKey: true
         },
-
+        order_info: {
+            type: DataTypes.STRING(2500),
+            allowNull: false
+        },
     }) 
 }

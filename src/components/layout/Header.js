@@ -49,7 +49,7 @@ const Header = () => {
                 </div>
                 <div className={classes.header_item_left}>
                     {token && <li>
-                        <NavLink style={styleActiveLink} to='profile'>Profile</NavLink>
+                        <NavLink style={styleActiveLink} to='user'><i className="fa-regular fa-user fa-xl"></i></NavLink>
                     </li>}
                     {!token ? ( <li>
                         <NavLink style={styleActiveLink} to='auth'><i className="fa-regular fa-user fa-xl"></i></NavLink>

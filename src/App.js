@@ -14,12 +14,16 @@ import Platforms from './components/pages/Platforms'
 import Search from './components/pages/Search'
 import DetailProduct from './components/pages/DetailProduct'
 
-import './App.css';
-import Profile from './components/pages/Profile'
+
+import Profile from './components/Profile'
 import { Footer } from './components/layout/Footer'
 import { Cart } from './components/Cart'
 import Wishlist from './components/pages/Wishlist'
-
+import User from './components/pages/User'
+import './App.css';
+import NotFound from './components/pages/NotFound'
+import Orders from './components/Orders'
+import ThankYou from './components/pages/ThankYou'
 
 function App() {
   const token = useSelector(state => state.auth.token)
@@ -39,13 +43,20 @@ function App() {
 
 					<Route path="/auth" element={<Auth />} />
 					{token && (
-					<Route path="/profile" element={<Profile />}/>
+					<Route path="/user" element={<User />}>
+						<Route index element={<Profile />}/>
+						<Route path="profile" element={<Profile />}/>
+						<Route path="orders" element={<Orders />}/>
+						<Route path="*" element={<NotFound />} />
+					</Route>
 					)}
 					{token && (
 					<Route path="/Wishlist" element={<Wishlist />}/>
 					)}
 					<Route path="/product-detail/:id" element={<DetailProduct />} />
 					<Route path="/cart" element={<Cart />} />
+					<Route path="/checkout" element={<ThankYou />} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</main>
 			<Footer></Footer>

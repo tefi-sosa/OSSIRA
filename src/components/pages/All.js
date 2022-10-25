@@ -12,7 +12,7 @@ const All = () => {
     axios
       .get(`http://localhost:4040/product`)
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         getAll(res.data)
         setLoading(false)
       })

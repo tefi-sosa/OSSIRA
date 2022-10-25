@@ -1,0 +1,18 @@
+.user {
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.user_nav {
+  background-color: #e6e6e6;
+  padding: 20px 40px 20px 40px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 200px;
+}
+
+.user_right {
+  min-width: 500px;
+}

@@ -1,14 +1,38 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import classes from './Cart.module.css'
+import axios from 'axios'
+import { resetCart } from '../store/cartSlice'
 
 import CheckoutCartItem from './CheckoutCartItem'
 import Total from './Total'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 export const Cart = () => {
 
+  const url = `http://localhost:4040`
+
   const cart = useSelector((state) => state.cart.cart)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   // console.log(cart)
+  let token = localStorage.getItem('token')
+  let userId = localStorage.getItem('userId') 
+
+  const handleAddToOrders = () => {
+    axios
+    .post(`${url}/orders/${userId}`, {cart}, {headers: {authorization: token}})
+    .then((res) => {
+      // console.log('ADDED')
+      console.log(res.data)
+    })
+  }
+
+  const handleCheckOut = () => {
+    token && handleAddToOrders()
+    navigate('/checkout')
+    dispatch(resetCart())
+  }
 
   return (
     <div className={classes.cart}>
@@ -46,7 +70,11 @@ export const Cart = () => {
           
             <div className={classes.cart_right}>
               <Total />
-              <button>Checkout</button>
+              <button
+                onClick={() => {
+                  handleCheckOut()
+                }}
+              >Checkout</button>
             </div>              
 
           </>

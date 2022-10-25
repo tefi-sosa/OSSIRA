@@ -4,6 +4,7 @@ const Sequelize = require('sequelize')
 
 const {Wishlist} = require('../models/wishlist')
 const {Products} = require('../models/products')
+const {Order} = require('../models/orders')
 
 const sequelize = new Sequelize(CONNECTION_STRING, {
   dialect: 'postgres',
@@ -22,6 +23,7 @@ module.exports = {
       .then(dbRes => res.status(200).send(dbRes[0]))
       .catch(err => console.log(err))
   },
+
   getProductType: async (req, res) => {
     // console.log(req.params.type)
     let shoes = req.params.type
@@ -32,6 +34,7 @@ module.exports = {
       .then(dbRes => res.status(200).send(dbRes[0]))
       .catch(err => console.log(err))
   },
+
   getProduct: async (req, res) => {
     console.log(req.params.id)
     let shoeId = req.params.id
@@ -64,7 +67,7 @@ module.exports = {
       // console.log(favShoes)
       res.send(favShoes).status(200)
     } catch (error) {
-        console.log('ERROR IN ADDWISHLIST ITEM')
+        console.log('ERROR IN GETTING WISHLIST ITEM')
         console.log(error)
         res.sendStatus(400)
     }
@@ -107,5 +110,24 @@ module.exports = {
       console.log(error)
       res.sendStatus(400)
   }
+  },
+
+  postOrder: async (req, res) => {
+    console.log('POSTING ORDER')
+    
+    let order = JSON.stringify(req.body.cart)
+    let userId = Number(req.params.id)
+
+    console.log(order)
+    console.log(userId)
+
+    try {
+      await Order.create({ order_info: order, userId: userId })
+      res.sendStatus(200)
+    } catch (error) {
+        console.log('ERROR IN POSTING ORDER')
+        console.log(error)
+        res.sendStatus(400)
+    }
   },
 }
