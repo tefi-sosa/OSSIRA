@@ -51,7 +51,7 @@ const cartSlice = createSlice({
       if (itemInCart) {
         itemInCart.quantity++;
       } else {
-        state.cart.push({ ...action.payload, quantity: 1 });
+        state.cart.push({ ...action.payload, quantity: 1 , total: 0});
       }
 
       localStorage.setItem('cart', JSON.stringify(state.cart))
@@ -75,6 +75,10 @@ const cartSlice = createSlice({
       state.cart = removeItem;
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
+    setTotal: (state, action) => {
+      state.cart[0].total = action.payload
+      localStorage.setItem('cart', JSON.stringify(state.cart))
+    },
     resetCart: (state, action) => {
       state.cart = [];
       localStorage.removeItem('cart')
@@ -82,11 +86,14 @@ const cartSlice = createSlice({
   },
 });
 
+
+
 export const {
   addToCart,
   incrementQuantity,
   decrementQuantity,
   removeItem,
+  setTotal,
   resetCart
 } = cartSlice.actions;
 

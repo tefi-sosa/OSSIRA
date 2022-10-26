@@ -6,8 +6,6 @@ import { useParams } from 'react-router-dom'
 import { TailSpin } from 'react-loading-icons'
 import classes from './DetailProduct.module.css'
 import { addToCart } from '../../store/cartSlice'
-// import { addToFavorites, removeFavorite } from '../../store/favSlice'
-
 
 const DetailProduct = () => {
 
@@ -48,22 +46,25 @@ const DetailProduct = () => {
   }
 
   useEffect(() => {
-    axios
-    .get(`${url}/wishlist`, {
-      params: {
-      user: userId
-    }
-  })
-    .then((res) => {
-        // console.log(res.data)
-        const wishlistData = res.data
-        wishlistData.forEach((element) => { 
-          if (element.product_id === shoe.product_id) {
-          setFav(true)
-        }
-        })
-
+    if (token) {
+      axios
+      .get(`${url}/wishlist`, {
+        params: {
+        user: userId
+      }
     })
+      .then((res) => {
+          // console.log(res.data)
+          const wishlistData = res.data
+          wishlistData.forEach((element) => { 
+            if (element.product_id === shoe.product_id) {
+            setFav(true)
+          }
+          })
+
+      })
+    }
+
   }, [shoe, fav])
 
   useEffect(() => {

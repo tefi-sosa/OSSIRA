@@ -1,9 +1,11 @@
 // import './total.css'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch } from 'react-redux'
+import { setTotal } from '../store/cartSlice'
 
 function Total() {
 
   const cart = useSelector((state) => state.cart.cart)
+  const dispatch = useDispatch()
 
   const getTotal = () => {
     let totalQuantity = 0
@@ -12,6 +14,7 @@ function Total() {
       totalQuantity += item.quantity
       totalPrice += item.price * item.quantity
     })
+    dispatch(setTotal(totalPrice))
     return {totalPrice, totalQuantity}
   }
  

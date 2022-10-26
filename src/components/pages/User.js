@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import classes from './User.module.css'
 import { authActions } from '../../store/authSlice'
@@ -16,7 +16,7 @@ const User = () => {
   const navigate = useNavigate()
 
   return (
-    <div className={`container ${classes.user}`}>
+    <div className={`${classes.user}`}>
       <nav className={classes.user_nav}>
           <li>
               <NavLink style={styleActiveLink} to='profile'>PROFILE</NavLink>
@@ -25,10 +25,10 @@ const User = () => {
               <NavLink style={styleActiveLink} to='orders'>MY ORDERS</NavLink>
           </li>
           <li>
-          <button onClick={() => {
+          <Link onClick={() => {
                             dispatch(authActions.logout())
                             navigate('/')
-                        }}>Logout</button>
+                        }}>LOGOUT</Link>
           </li>
       </nav>
       <div className={classes.user_right}>

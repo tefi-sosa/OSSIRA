@@ -130,4 +130,33 @@ module.exports = {
         res.sendStatus(400)
     }
   },
+
+  getOrder: async (req, res) => {
+    console.log('GETTING ORDER')
+    
+    let userId = Number(req.params.id)
+    // console.log(userId)
+
+    sequelize.query(
+      `SELECT "order_info" FROM "orders" WHERE "userId" = ${userId}`
+    )
+      .then(dbRes => res.status(200).send(dbRes[0]))
+      .catch(err => console.log(err))
+
+    // try {
+
+    //   let results = await Order.findAll({ where: {
+    //     userId: userId
+    //   } })
+
+    //   // console.log(results)
+    //   // results = JSON.parse(results)
+
+    //   res.send(results).status(200)
+    // } catch (error) {
+    //     console.log('ERROR IN POSTING ORDER')
+    //     console.log(error)
+    //     res.sendStatus(400)
+    // }
+  },
 }

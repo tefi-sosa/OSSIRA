@@ -15,7 +15,7 @@ export const Cart = () => {
   const cart = useSelector((state) => state.cart.cart)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  // console.log(cart)
+  console.log(cart)
   let token = localStorage.getItem('token')
   let userId = localStorage.getItem('userId') 
 
@@ -28,8 +28,13 @@ export const Cart = () => {
     })
   }
 
+
+  
   const handleCheckOut = () => {
-    token && handleAddToOrders()
+
+    if (token) {
+      handleAddToOrders()
+    } 
     navigate('/checkout')
     dispatch(resetCart())
   }
