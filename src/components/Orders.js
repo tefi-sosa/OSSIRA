@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import classes from './Orders.module.css'
+import { TailSpin } from 'react-loading-icons'
 
 const Orders = () => {
   const [orders, setOrders] = useState([])
+  const [loading, setLoading] = useState(true)
+
   const url = `http://localhost:4040`
 
   let userId = localStorage.getItem('userId') 
@@ -20,7 +23,8 @@ const Orders = () => {
             decodedData.push(JSON.parse(element.order_info))
           });
           setOrders(decodedData)
-          console.log(decodedData)
+          // console.log(decodedData)
+          setLoading(false)
         })
   }, [])
 
@@ -28,7 +32,7 @@ const Orders = () => {
     <div>
       <h4>ORDER HISTORY</h4>
       <div>
-        {(orders.length === 0) ? (<p>You have no orders history</p>
+      {!loading ? ((orders.length === 0) ? (<p>You have no orders history</p>
         ) : (
           orders.map((order) => {
             let total = order[0].total
@@ -54,7 +58,14 @@ const Orders = () => {
                 }
               </div>
             )
-        }))}
+        })))
+        : (
+          <div>
+            <TailSpin stroke="#000000" strokeOpacity={.9} speed={.75} height='5rem' />
+            <p>Loading...</p>
+          </div>
+        )
+      }
       </div>
     </div>
   )

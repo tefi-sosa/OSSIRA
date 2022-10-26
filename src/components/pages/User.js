@@ -25,7 +25,7 @@ const User = () => {
               <NavLink style={styleActiveLink} to='orders'>MY ORDERS</NavLink>
           </li>
           <li>
-          <Link onClick={() => {
+          <Link to="/" onClick={() => {
                             dispatch(authActions.logout())
                             navigate('/')
                         }}>LOGOUT</Link>

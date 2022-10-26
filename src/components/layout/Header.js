@@ -49,15 +49,11 @@ const Header = () => {
                 </div>
                 <div className={classes.header_item_left}>
                     {token && <li>
-                        <NavLink style={styleActiveLink} to='user'><i className="fa-regular fa-user fa-xl"></i></NavLink>
+                        <NavLink style={styleActiveLink} to='user/profile'><i className="fa-regular fa-user fa-xl"></i></NavLink>
                     </li>}
-                    {!token ? ( <li>
+                    {!token && <li>
                         <NavLink style={styleActiveLink} to='auth'><i className="fa-regular fa-user fa-xl"></i></NavLink>
-                    </li> ) : ( <button onClick={() => {
-                            dispatch(authActions.logout())
-                            navigate('/')
-                        }}>Logout</button> )
-                    }
+                    </li>}
                     <li>
                         <NavLink style={token && styleActiveLink} to={!token ? ('auth') : ('wishlist')}><i className="fa-regular fa-heart fa-xl"></i></NavLink>
                     </li> 

@@ -2,7 +2,10 @@ import React from 'react'
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <div>
+      <h4>PROFILE</h4>
+      <p>Welcome back user!</p>
+    </div>
   )
 }
 

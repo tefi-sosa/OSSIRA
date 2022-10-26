@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
 import ProductCard from '../ProductCard'
 import { TailSpin } from 'react-loading-icons'
