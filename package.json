@@ -2,6 +2,7 @@
   "name": "project",
   "version": "0.1.0",
   "main": "./server/server.js",
+  "proxy": "http://localhost:4040",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",

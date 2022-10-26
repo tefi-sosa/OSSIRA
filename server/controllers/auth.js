@@ -30,6 +30,10 @@ module.exports = {
 				throw 'Please provide a username and password'
 			}
 
+      if (username.length < 4) {
+				throw 'Username needs to be at least 4 characters long'
+			}
+
       const requirements = new RegExp(
 				'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{5,}$'
 			) // Validating username length, same as data model user
