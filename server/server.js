@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const path = require('path')
 require('dotenv').config()
 
 const { sequelize } = require('./database/database')
@@ -16,6 +17,8 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+app.use(express.static(path.resolve(__dirname, '../build')))
+
 // Database //
 
 Wishlist.belongsTo(User, { constraints: true, onDelete: 'CASCADE' })
@@ -26,15 +29,15 @@ User.hasMany(Order)
 // Routes //
 require('./routes/routes')(app)
 
-const port = process.env.PORT || 4000
+const PORT = process.env.PORT || 4000
 
 sequelize
 	.sync( 
 		// {force: true}
 		)
 	.then(() => {
-		app.listen(port, () =>
-			console.log(`DB synced and server running on port ${port}`)
+		app.listen(PORT, () =>
+			console.log(`DB synced and server running on port ${PORT}`)
 		)
 	})
 	.catch(err => console.error(err))

@@ -10,7 +10,7 @@ const Platforms = () => {
 
   const getPlatformShoes = () => {
     axios
-      .get(`http://localhost:4040/product/platform`)
+      .get(`/api/product/platform`)
       .then((res) => {
         console.log(res.data)
         getPlatforms(res.data)

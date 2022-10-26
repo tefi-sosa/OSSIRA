@@ -11,7 +11,7 @@ const Sneakers = () => {
 
   const getSneakersShoes = () => {
     axios
-      .get(`http://localhost:4040/product/sneaker`)
+      .get(`/api/product/sneaker`)
       .then((res) => {
         console.log(res.data)
         getSneakers(res.data)

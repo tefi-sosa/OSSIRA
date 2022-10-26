@@ -14,7 +14,7 @@ const Orders = () => {
 
   useEffect(() => {
     axios
-        .get(`${url}/orders/${userId}`)
+        .get(`/api/orders/${userId}`)
         .then((res) => {
           // console.log(res.data)
           let decodedData = []

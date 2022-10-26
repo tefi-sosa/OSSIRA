@@ -28,7 +28,7 @@ const Auth = () => {
 	const handleSubmit = async values => {
 		try {
 			const response = await axios.post(
-				register ? `${url}/register` : `${url}/login`,
+				register ? `/api/register` : `${url}/login`,
 				values
 			)
 			const data = response.data

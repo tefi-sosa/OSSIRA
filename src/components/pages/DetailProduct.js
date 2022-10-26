@@ -23,7 +23,7 @@ const DetailProduct = () => {
 
   const handleAddToFav = (id) => {
     axios
-    .post(`${url}/wishlist/${id}`, {userId}, {headers: {authorization: token}})
+    .post(`/api/wishlist/${id}`, {userId}, {headers: {authorization: token}})
     .then((res) => {
       // console.log('ADDED')
       // console.log(res.data)
@@ -35,7 +35,7 @@ const DetailProduct = () => {
     // console.log(id)
     // console.log(userId)
     axios
-      .delete(`${url}/wishlist/${id}`, {headers: {authorization: token},
+      .delete(`/api/wishlist/${id}`, {headers: {authorization: token},
       params: {
         user: userId
       }})
@@ -48,7 +48,7 @@ const DetailProduct = () => {
   useEffect(() => {
     if (token) {
       axios
-      .get(`${url}/wishlist`, {
+      .get(`/api/wishlist`, {
         params: {
         user: userId
       }
@@ -69,7 +69,7 @@ const DetailProduct = () => {
 
   useEffect(() => {
     axios
-        .get(`${url}/product-detail/${id}`)
+        .get(`/api/product-detail/${id}`)
         .then((res) => {
             setShoe(res.data[0])
             setLoading(false)

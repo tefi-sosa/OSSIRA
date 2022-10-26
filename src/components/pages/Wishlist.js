@@ -21,7 +21,7 @@ const Wishlist = () => {
     // console.log(id)
     // console.log(userId)
     axios
-      .delete(`${url}/wishlist/${id}`, {headers: {authorization: token},
+      .delete(`/api/wishlist/${id}`, {headers: {authorization: token},
       params: {
         user: userId
       }})
@@ -33,7 +33,7 @@ const Wishlist = () => {
 
   const getAllFavorites = () => {
     axios
-    .get(`${url}/wishlist`, {
+    .get(`/api/wishlist`, {
       params: {
       user: userId
     }

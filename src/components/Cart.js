@@ -21,7 +21,7 @@ export const Cart = () => {
 
   const handleAddToOrders = () => {
     axios
-    .post(`${url}/orders/${userId}`, {cart}, {headers: {authorization: token}})
+    .post(`/api/orders/${userId}`, {cart}, {headers: {authorization: token}})
     .then((res) => {
       // console.log('ADDED')
       console.log(res.data)

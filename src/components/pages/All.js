@@ -10,7 +10,7 @@ const All = () => {
 
   const getAllShoes = () => {
     axios
-      .get(`http://localhost:4040/product`)
+      .get(`/api/product`)
       .then((res) => {
         // console.log(res.data)
         getAll(res.data)

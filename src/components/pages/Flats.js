@@ -12,7 +12,7 @@ const Flats = () => {
 
   const getFlatShoes = () => {
     axios
-      .get(`http://localhost:4040/product/flat`)
+      .get(`/api/product/flat`)
       .then((res) => {
         console.log(res.data)
         getFlats(res.data)

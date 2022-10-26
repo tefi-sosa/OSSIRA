@@ -11,7 +11,7 @@ const Search = ( {onClose} ) => {
 
   const getShoes = () => {
     axios
-      .get('http://localhost:4040/product')
+      .get('/api/product')
       .then((res) => {
         console.log(res.data)
         setShoes(res.data)
