@@ -1,8 +1,8 @@
 # OSSIRA - E-Commerce Website
 
-This is an ecommerce website for an imaginary brand Ossira, a high end shoe store. Users should be able to navigate through the website and add products to the cart. If they want to add products to a wishlist they will be instructed to create an account. It has a search bar available for users to search products by name or type of shoe. 
+This is an ecommerce website for an imaginary brand Ossira, a high end shoe store. Users should be able to navigate through the website, add products to the cart and checkout without the need of having an account. This app has a search bar available for users to search products by name or type of shoe. If the user wants to add products to a wishlist or access their wishlist, they will be instructed to create an account. Users that have an account can also see their order's history.
 
-This app was created with React, React-Redux, CSS, JavaScript, Axios, Express, Sequelize, Node.js, PostgreSQL and Heroku.
+This app was created using React, React-Redux, CSS, JavaScript, Axios, Express, Sequelize, Node.js, Formik, JSON Web Token, PostgreSQL and Heroku.
 
 ## Features
 
@@ -14,12 +14,12 @@ User can:
 - Add products to cart without having an account
 - Modify product quantity
 - See total price of items in cart
+- See order history (if they checked out while being logged in)
 - Search for items by name or type
 
 ## Future Features
 
 - Mobile Responsive
-- Order history available when if user checks out while being logged in
 - Change password
 
 ## Screenshots
@@ -32,7 +32,7 @@ User can:
 
 ## Live Website
 
-A live website link will soon be available [here]()
+A live website link is available [here](https://ossira.herokuapp.com/)
     
 ## Demo
 
