@@ -48,6 +48,11 @@ const cartSlice = createSlice({
       // console.log('ADDINGGGG')
 
       const itemInCart = state.cart.find((item) => item.id === action.payload.id);
+
+      const sessionExp = action.payload.expCart
+
+			localStorage.setItem('expCart', sessionExp)
+
       if (itemInCart) {
         itemInCart.quantity++;
       } else {
@@ -80,6 +85,7 @@ const cartSlice = createSlice({
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
     resetCart: (state, action) => {
+      console.log('RESET')
       state.cart = [];
       localStorage.removeItem('cart')
     },

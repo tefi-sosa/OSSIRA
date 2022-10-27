@@ -21,6 +21,8 @@ const DetailProduct = () => {
     let token = localStorage.getItem('token')
     let userId = localStorage.getItem('userId')  
 
+    const exp = Date.now() + 1000 * 60 * 60 
+
   const handleAddToFav = (id) => {
     axios
     .post(`/api/wishlist/${id}`, {userId}, {headers: {authorization: token}})
@@ -96,7 +98,7 @@ const DetailProduct = () => {
               <button 
                 onClick={() => 
                   dispatch(addToCart({
-                    id:shoe.product_id, title:shoe.product_name, image:shoe.product_img, price:shoe.product_price
+                    id:shoe.product_id, title:shoe.product_name, image:shoe.product_img, price:shoe.product_price, expCart: exp
                   }))
                 }
               >Add to Cart</button>
