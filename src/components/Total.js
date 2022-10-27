@@ -14,7 +14,7 @@ function Total() {
       totalQuantity += item.quantity
       totalPrice += item.price * item.quantity
     })
-    // dispatch(setTotal(totalPrice))
+    dispatch(setTotal(totalPrice))
     return {totalPrice, totalQuantity}
   }
  
