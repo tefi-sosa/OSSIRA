@@ -1,3 +1,9 @@
-a {
-  z-index: 10;
+.product_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  gap: 35px;
+  max-width: 500px;
 }

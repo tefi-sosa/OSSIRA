@@ -22,7 +22,7 @@ const User = () => {
               <NavLink style={styleActiveLink} to='profile'>PROFILE</NavLink>
           </li>
           <li>
-              <NavLink style={styleActiveLink} to='/wishlist'>WHISHLIST</NavLink>
+              <NavLink style={styleActiveLink} to='wishlist'>WISHLIST</NavLink>
           </li>
           <li>
               <NavLink style={styleActiveLink} to='orders'>MY ORDERS</NavLink>

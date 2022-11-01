@@ -3,14 +3,13 @@ import { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { TailSpin } from 'react-loading-icons'
-import ProductCard from '../ProductCard'
+import WishlistCard from '../WishlistCard'
+import classes from './Wishlist.module.css'
 
 
 const Wishlist = () => { 
   const [wishlist, setWishlist] = useState([])
   const [loading, setLoading] = useState(true)
-
-  const navigate = useNavigate()
 
   let token = localStorage.getItem('token')
   let userId = localStorage.getItem('userId')
@@ -50,19 +49,19 @@ const Wishlist = () => {
   }, [])
 
   return (
-    <div className='product_container'>
+    <div className={classes.product_container}>
       {!loading ? ( (wishlist.length === 0) ? (<p>You have no items added to the wishlist</p>) : ( wishlist.map((s, i) => {
         return (
-          <ProductCard key={s.product_id} id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price} >
+          <WishlistCard key={s.product_id} id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price} >
             <div className="close">
-            <NavLink to={`/wishlist`}>
+            <NavLink to={`/user/wishlist`}>
               <i className="fa-solid fa-xmark fa-xl x_close" onClick={() => {handleDeleteFav(s.product_id)
               getAllFavorites()
               }
               }></i>
             </NavLink>
             </div>
-          </ProductCard> )}
+          </WishlistCard> )}
       )) 
       ) : ( <div>
         <TailSpin stroke="#000000" strokeOpacity={.9} speed={.75} height='5rem' />

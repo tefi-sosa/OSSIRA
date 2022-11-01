@@ -3,9 +3,6 @@ import axios from 'axios'
 import ProductCard from '../ProductCard'
 import { TailSpin } from 'react-loading-icons'
 
-const { REACT_APP_PORT } = process.env
-
-
 const Flats = () => {
   const [flats, getFlats] = useState([])
   const [loading, setLoading] = useState(true)
@@ -27,12 +24,12 @@ const Flats = () => {
   return (
     <div className='product_container'>
       {!loading ? (flats.map((s, i) => {
-        return <ProductCard key={s.product_id} id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price}/> }
-      )) : ( <div>
-        <TailSpin stroke="#000000" strokeOpacity={.9} speed={.75} height='5rem' />
-        <p>Loading...</p>
-      </div> ) 
-    }
+          return <ProductCard key={s.product_id} id={s.product_id} name={s.product_name} imgURL={s.product_img} price={s.product_price}/> }
+        )) : ( <div>
+          <TailSpin stroke="#000000" strokeOpacity={.9} speed={.75} height='5rem' />
+          <p>Loading...</p>
+        </div> ) 
+      }
     </div>
   )
 }

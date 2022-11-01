@@ -47,11 +47,9 @@ function App() {
 						<Route index element={<Profile />}/>
 						<Route path="profile" element={<Profile />}/>
 						<Route path="orders" element={<Orders />}/>
+						<Route path="wishlist" element={<Wishlist />}/>
 						<Route path="*" element={<NotFound />} />
 					</Route>
-					)}
-					{token && (
-					<Route path="/Wishlist" element={<Wishlist />}/>
 					)}
 					<Route path="/product-detail/:id" element={<DetailProduct />} />
 					<Route path="/cart" element={<Cart />} />

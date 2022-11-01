@@ -55,7 +55,7 @@ const Header = () => {
                         <NavLink style={styleActiveLink} to='auth'><i className="fa-regular fa-user fa-xl"></i></NavLink>
                     </li>}
                     <li>
-                        <NavLink style={token && styleActiveLink} to={!token ? ('auth') : ('wishlist')}><i className="fa-regular fa-heart fa-xl"></i></NavLink>
+                        <NavLink style={token && styleActiveLink} to={!token ? ('auth') : ('user/wishlist')}><i className="fa-regular fa-heart fa-xl"></i></NavLink>
                     </li> 
                     <li>
                         <NavLink style={styleActiveLink} to='cart'><i className="fa-solid fa-cart-shopping fa-xl"></i></NavLink>
