@@ -13,6 +13,8 @@ const DetailProduct = () => {
   const [shoe, setShoe] = useState({})
   const [loading, setLoading] = useState(true)
   const [fav, setFav] = useState(false)
+  const [message, setMessage] = useState('')
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -30,6 +32,10 @@ const DetailProduct = () => {
       // console.log('ADDED')
       // console.log(res.data)
       setFav(true)
+      setMessage('Product has been added to wishlist!')
+      setTimeout(() => {
+        setMessage('')
+      }, 3000)
     })
   }
 
@@ -44,6 +50,10 @@ const DetailProduct = () => {
     .then((res) => {
         // console.log(res.data)
         setFav(false)
+        setMessage('Product has been removed from wishlist!')
+        setTimeout(() => {
+					setMessage('')
+				}, 3000)
     })
   }
 
@@ -93,13 +103,20 @@ const DetailProduct = () => {
             <h2>{shoe.product_name.toUpperCase()}</h2>
             <h3>$ {shoe.product_price}</h3>
             <hr/>
-            <p>Description - Lorem ipsum dolor sit amet, eos ex duis omnis, solum doming atomorum vim at. Usu te vero legimus repudiandae. At vix iuvaret honestatis necessitatibus, regione fuisset delicatissimi ut nec. In falli alterum his. Eam forensibus honestatis te, id quo elit perpetua adipiscing.</p>
+            <p>Description - Lorem ipsum dolor sit amet, eos ex duis omnis, solum doming atomorum vim at. </p>
+            <p>Usu te vero legimus repudiandae. </p>
+            <p>At vix iuvaret honestatis necessitatibus, regione fuisset delicatissimi ut nec. In falli alterum his. Eam forensibus honestatis te, id quo elit perpetua adipiscing.</p>
             <div className={classes.button_div}>
               <button 
-                onClick={() => 
+                onClick={() => {
                   dispatch(addToCart({
                     id:shoe.product_id, title:shoe.product_name, image:shoe.product_img, price:shoe.product_price, expCart: exp
                   }))
+                  setMessage('Product has been added to the cart!')
+                  setTimeout(() => {
+                    setMessage('')
+                  }, 3000)
+                  }
                 }
               >Add to Cart</button>
               <div>
@@ -114,8 +131,8 @@ const DetailProduct = () => {
                 ))
                 }              
               </div>
-
             </div>
+            <p className={classes.message}>{message}</p>
           </div>
         </div>
       )}

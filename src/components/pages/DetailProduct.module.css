@@ -16,4 +16,10 @@
   display: flex;
   gap: 30px;
   align-items: center;
+  margin-top: 35px;
+}
+
+.message {
+  color: #f57145;
+  margin-top: 35px;
 }
