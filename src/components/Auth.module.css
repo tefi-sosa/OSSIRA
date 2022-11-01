@@ -18,7 +18,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
 .field {
@@ -26,7 +26,6 @@
   width: 300px;
   font-family: 'Montserrat';
   font-weight: 200;
-
 }
 
 .toggler_btn {
@@ -36,4 +35,7 @@
 
 .error {
   color: red;
+  min-height: 25px;
+  margin-bottom: 20px;
+  display: block;
 }

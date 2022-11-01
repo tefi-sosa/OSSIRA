@@ -58,7 +58,7 @@ const Auth = () => {
 	return (
 		<section className={classes.auth}>
 			<div className={classes.form}>
-				<h2>{!register ? 'LOGIN' : 'Register for an account'}</h2>
+				<h2>{!register ? 'LOGIN' : 'REGISTER FOR AN ACCOUNT'}</h2>
 
 				<Formik
 					initialValues={formInitialValues}
@@ -90,6 +90,7 @@ const Auth = () => {
 										placeholder="Password"
 									/>
 								</div>
+								<p className={classes.error}>{error}</p>
 								<LoginBtn
 
 									loading={isSubmitting}
@@ -111,12 +112,11 @@ const Auth = () => {
 									{register ? 'Login Here' : 'Create Account'}
 								</button>
 
-								
+
 							</div>
 						</Form>
 					)}
 				</Formik>
-				<p className={classes.error}>{error}</p>
 			</div>
 		</section>
 	)
