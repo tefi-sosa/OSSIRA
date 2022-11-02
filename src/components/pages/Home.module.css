@@ -19,8 +19,9 @@
   object-fit:cover;
   object-position: -80;
   width: 100vw;
+  max-width: 100%;
 }
 
-.img_banner:hover {
-  /* -webkit-mask: linear-gradient(rgba(205, 204, 204, 0.393), black) ; */
+.banner_link {
+  background-color: black;
 }

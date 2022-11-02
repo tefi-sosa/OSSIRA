@@ -1,6 +1,9 @@
 import React from 'react'
-import banner from '../images/banner.webp'
-import secondBanner from '../images/home.webp'
+// import banner from '../images/home.jpg'
+import banner from '../images/banner2.webp'
+// import banner from '../images/banner.jpg'
+import secondBanner from '../images/home.jpg'
+// import secondBanner from '../images/banner2.webp'
 
 import classes from './Home.module.css'
 
@@ -31,7 +34,7 @@ const Home = () => {
         </div>
       </div>
       <div className={classes.img_}>
-        <NavLink to='platforms'><img className={classes.img_banner} src={banner} alt=''></img></NavLink>
+        <NavLink to='platforms' className={classes.banner_link}><img className={classes.img_banner} src={banner} alt=''></img></NavLink>
       </div>
           </section>
   )
