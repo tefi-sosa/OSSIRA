@@ -7,7 +7,7 @@ import secondBanner from '../images/home.jpg'
 
 import classes from './Home.module.css'
 
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 
 const Home = () => {
   return (

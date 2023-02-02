@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 import axios from 'axios'
 import { TailSpin } from 'react-loading-icons'
 import WishlistCard from './WishlistCard'
@@ -13,8 +13,6 @@ const Wishlist = () => {
 
   let token = localStorage.getItem('token')
   let userId = localStorage.getItem('userId')
-
-  const url = `http://localhost:4040`
 
   const handleDeleteFav = (id) => {
     // console.log(id)

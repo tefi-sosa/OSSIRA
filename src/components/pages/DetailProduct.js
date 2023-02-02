@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { TailSpin } from 'react-loading-icons'
@@ -17,8 +17,6 @@ const DetailProduct = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
-  const url = `http://localhost:4040`
 
     let token = localStorage.getItem('token')
     let userId = localStorage.getItem('userId')  

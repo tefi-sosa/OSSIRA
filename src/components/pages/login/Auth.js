@@ -10,15 +10,11 @@ import axios from 'axios'
 
 import classes from './Auth.module.css'
 
-const {PORT} = process.env
-
 const Auth = () => {
 	const [error, setError] = useState('')
 	const register = useSelector(state => state.auth.isRegister)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-
-	const url = `http://localhost:4040`
 
 	const formInitialValues = {
 		username: '',

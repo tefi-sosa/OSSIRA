@@ -7,8 +7,6 @@ const Orders = () => {
   const [orders, setOrders] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const url = `http://localhost:4040`
-
   let userId = localStorage.getItem('userId') 
   let number = 0
 

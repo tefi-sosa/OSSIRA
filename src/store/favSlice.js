@@ -4,12 +4,6 @@ const initialState = {
 	favorites: []
 }
 
-// HELPER //
-
-const isFavorite = () => {
-  
-}
-
 const favSlice = createSlice({
   name: 'favorites',
   initialState,

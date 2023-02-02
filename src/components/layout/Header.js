@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { authActions } from '../../store/authSlice'
+import { NavLink} from 'react-router-dom'
+import { useSelector} from 'react-redux'
 import Search from '../pages/Search'
 
 import classes from './Header.module.css'
@@ -10,8 +9,7 @@ const Header = () => {
     const [searchIsShown, setSearchIsShown] = useState(false)
 
     const token = useSelector(state => state.auth.token)
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+
     const cart = useSelector((state) => state.cart.cart)
 
     let emptyCart = true

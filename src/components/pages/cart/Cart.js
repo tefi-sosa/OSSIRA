@@ -6,11 +6,9 @@ import { resetCart } from '../../../store/cartSlice'
 
 import CheckoutCartItem from './CheckoutCartItem'
 import Total from './Total'
-import { Navigate, useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 
 export const Cart = () => {
-
-  const url = `http://localhost:4040`
 
   const cart = useSelector((state) => state.cart.cart)
   const dispatch = useDispatch()
@@ -28,7 +26,6 @@ export const Cart = () => {
     })
   }
 
-  
   const handleCheckOut = () => {
 
     if (token) {
