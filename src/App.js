@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 
 import Header from './components/layout/Header'
-import Auth from './components/Auth'
+import Auth from './components/pages/login/Auth'
 import Home from './components/pages/Home'
 import All from './components/pages/All'
 import Flats from './components/pages/Flats'
@@ -15,14 +15,14 @@ import Search from './components/pages/Search'
 import DetailProduct from './components/pages/DetailProduct'
 
 
-import Profile from './components/Profile'
+import Profile from './components/pages/profile/Profile'
 import { Footer } from './components/layout/Footer'
-import { Cart } from './components/Cart'
-import Wishlist from './components/pages/Wishlist'
-import User from './components/pages/User'
+import { Cart } from './components/pages/cart/Cart'
+import Wishlist from './components/pages/profile/wishlist/Wishlist'
+import User from './components/pages/profile/User'
 import './App.css';
 import NotFound from './components/pages/NotFound'
-import Orders from './components/Orders'
+import Orders from './components/pages/profile/Orders'
 import ThankYou from './components/pages/ThankYou'
 
 function App() {

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { TailSpin } from 'react-loading-icons'
-import WishlistCard from '../WishlistCard'
+import WishlistCard from './WishlistCard'
 import classes from './Wishlist.module.css'
 
 

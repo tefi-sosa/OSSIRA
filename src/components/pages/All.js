@@ -1,7 +1,7 @@
 import {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import { TailSpin } from 'react-loading-icons'
-import ProductCard from '../ProductCard'
+import ProductCard from './elements/ProductCard'
 const { REACT_APP_PORT } = process.env
 
 const All = () => {

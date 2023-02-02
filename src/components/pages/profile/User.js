@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import classes from './User.module.css'
-import { authActions } from '../../store/authSlice'
+import { authActions } from '../../../store/authSlice'
 
 const User = () => {
 

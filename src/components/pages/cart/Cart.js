@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import classes from './Cart.module.css'
 import axios from 'axios'
-import { resetCart } from '../store/cartSlice'
+import { resetCart } from '../../../store/cartSlice'
 
 import CheckoutCartItem from './CheckoutCartItem'
 import Total from './Total'

@@ -1,6 +1,6 @@
 // import './total.css'
 import {useSelector, useDispatch } from 'react-redux'
-import { setTotal } from '../store/cartSlice'
+import { setTotal } from '../../../store/cartSlice'
 
 function Total() {
 

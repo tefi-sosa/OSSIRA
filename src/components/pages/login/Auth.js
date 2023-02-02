@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 
-import { authActions } from './../store/authSlice'
+import { authActions } from '../../../store/authSlice'
 import LoginBtn from './LoginBtn'
 
 import axios from 'axios'
