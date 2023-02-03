@@ -12,8 +12,8 @@ header {
 }
 
 nav {
-  width: 100vw;
-  max-width: 1300px;
+  /* width: 100%; */
+  /* max-width: 1300px; */
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -40,4 +40,36 @@ nav {
 
 .brand_title {
   justify-self: center;
+  min-width: 129px;
+}
+
+@media only screen and (min-device-width : 480px) and (max-device-width : 1180px) {
+  .header_item_rigth {
+    max-width: 150px;
+  }
+
+  .header_item_left {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  nav{
+    gap:5vw;
+  }
+  
+  .nav_hide {
+    flex-direction: column;
+  }
+
+  .header_item_rigth {
+    width: auto;
+    /* position: absolute;
+    left: 225px; */
+  }
+
+  .header_item_left {
+    width: auto;
+    gap: 15px;
+  }
 }

@@ -64,7 +64,7 @@ const Header = () => {
                 </div>
                 
             </nav>
-            <nav>
+            <nav className={classes.nav_hide}>
                 <li>
                     <NavLink style={styleActiveLink} to='/all'>NEW ARRIVALS</NavLink>
                 </li>
