@@ -33,7 +33,7 @@ const Home = () => {
           <p>You have 30 days to change your order</p>           
         </div>
       </div>
-      <div className={classes.img_}>
+      <div className={classes.img_ && classes.background}>
         <NavLink to='platforms' className={classes.banner_link}><img className={classes.img_banner && classes.img_banner2} src={banner} alt=''></img></NavLink>
       </div>
           </section>

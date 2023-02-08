@@ -3,7 +3,10 @@ import { NavLink} from 'react-router-dom'
 import { useSelector} from 'react-redux'
 import Search from '../pages/Search'
 
+import HiddenNav from './HiddenNav'
+
 import classes from './Header.module.css'
+
 
 const Header = () => {
     const [searchIsShown, setSearchIsShown] = useState(false)
@@ -37,8 +40,9 @@ const Header = () => {
         <header >
             <nav className={classes.brand_nav}>
                 <div className={classes.header_item_rigth} >
-                    <i className="fa-solid fa-magnifying-glass fa-xl" onClick={showSearch}></i>
-                    {searchIsShown && <Search onClose={hideSearch} />}          
+                    <i className="fa-solid fa-magnifying-glass fa-xl hide" onClick={showSearch}></i>
+                    {searchIsShown && <Search onClose={hideSearch} />}  
+                    <HiddenNav onClick={showSearch}></HiddenNav>
                 </div>
                 <div className={classes.brand_title}>
                     <h1>
@@ -78,6 +82,7 @@ const Header = () => {
                     <NavLink style={styleActiveLink} to='/sneakers'>SNEAKERS</NavLink>
                 </li>
             </nav>
+
         </header>
     )
 }

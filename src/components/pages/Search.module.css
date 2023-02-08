@@ -27,3 +27,16 @@
   padding: 0 20px;
   font-family: 'Montserrat', sans-serif;
 }
+
+@media screen and (max-width: 580px) {
+  .input {
+    width: auto;
+  }
+  .search_main {
+    gap: 20px;
+  }
+  .search_container {
+    width: auto;
+    /* flex-direction: column; */
+  }
+}

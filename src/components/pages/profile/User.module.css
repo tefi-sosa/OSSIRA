@@ -21,3 +21,12 @@
 .user_right {
   min-width: 500px;
 }
+
+@media screen and (max-width: 580px) {
+  .user {
+    flex-direction: column;
+  }
+  .user_right {
+    min-width: 0;
+  }
+}

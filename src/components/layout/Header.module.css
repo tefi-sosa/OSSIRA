@@ -43,6 +43,10 @@ nav {
   min-width: 129px;
 }
 
+.hide {
+  display: inherit;
+}
+
 @media only screen and (min-device-width : 480px) and (max-device-width : 1180px) {
   .header_item_rigth {
     max-width: 150px;
@@ -58,18 +62,27 @@ nav {
     gap:5vw;
   }
   
+  header {
+    justify-content: space-between;
+  }
+
   .nav_hide {
-    flex-direction: column;
+    display: none;
   }
 
   .header_item_rigth {
     width: auto;
-    /* position: absolute;
-    left: 225px; */
   }
 
   .header_item_left {
     width: auto;
     gap: 15px;
+  }
+}
+
+@media screen and (min-width: 580px) {
+  .nav_show {
+    display: none;
+    visibility: hidden;
   }
 }
