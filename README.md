@@ -22,6 +22,10 @@ User can:
 - Mobile Responsive
 - Change password
 
+## Live Website
+
+A live website link is available [here](https://ossira.herokuapp.com/)
+
 ## Screenshots
 
 ![App Screenshot](/src/components/images/ossira-cart-screenshot.png)
@@ -29,10 +33,6 @@ User can:
 ![App Screenshot](/src/components/images/ossira-search-screenshot.png)
 
 ![App Screenshot](/src/components/images/ossira-login-screenshot.png)
-
-## Live Website
-
-A live website link is available [here](https://ossira.herokuapp.com/)
     
 ## Demo
 
