@@ -24,15 +24,23 @@ User can:
 
 ## Live Website
 
-A live website link is available [here](https://ossira.herokuapp.com/)
+A live website link is available [here](https://ossira-50689e59e923.herokuapp.com/)
 
 ## Screenshots
+
+![App Screenshot](/src/components/images/ossira-homepage-screenshot.png)
+
+![App Screenshot](/src/components/images/ossira-product-screenshot.png)
 
 ![App Screenshot](/src/components/images/ossira-cart-screenshot.png)
 
 ![App Screenshot](/src/components/images/ossira-search-screenshot.png)
 
 ![App Screenshot](/src/components/images/ossira-login-screenshot.png)
+
+![App Screenshot](/src/components/images/ossira-myorders-screenshot.png)
+
+<img src="/src/components/images/ossira-phoneview-screenshot.png" style=" width:300px"  >
     
 ## Demo
 
